@@ -38,7 +38,7 @@
           <wd-grid :column="5" border clickable>
             <wd-grid-item use-slot v-for="item in orderActions" :key="item.name">
               <view class="grid-item-content">
-                <component :is="item.icon" :size="28" class="grid-icon-class" />
+                <wd-icon :name="item.icon" size="28px" class="grid-icon-class" />
                 <text class="grid-item-label">{{ item.name }}</text>
               </view>
             </wd-grid-item>
@@ -52,7 +52,7 @@
               <text class="info-value">0</text>
             </view>
             <view class="info-icon-wrapper">
-              <component :is="Gift" :size="24" color="#fff" />
+              <wd-icon name="gift" size="24px" color="#fff" />
             </view>
           </view>
           <view class="info-card">
@@ -61,7 +61,7 @@
               <text class="info-value">0</text>
             </view>
             <view class="info-icon-wrapper">
-              <component :is="Ticket" :size="24" color="#fff" />
+              <wd-icon name="coupon" size="24px" color="#fff" />
             </view>
           </view>
           <view class="info-card">
@@ -70,7 +70,7 @@
               <text class="info-value">0</text>
             </view>
             <view class="info-icon-wrapper">
-              <component :is="CreditCard" :size="24" color="#fff" />
+              <wd-icon name="card" size="24px" color="#fff" />
             </view>
           </view>
         </view>
@@ -82,7 +82,7 @@
           <wd-grid :column="4" border clickable>
             <wd-grid-item use-slot v-for="item in menuItems" :key="item.name">
               <view class="grid-item-content">
-                <component :is="item.icon" :size="28" class="grid-icon-class" />
+                <wd-icon :name="item.icon" size="28px" class="grid-icon-class" />
                 <text class="grid-item-label">{{ item.name }}</text>
               </view>
             </wd-grid-item>
@@ -95,39 +95,22 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import {
-  Wallet,
-  Package,
-  Truck,
-  CheckCircle2,
-  Undo2,
-  Star,
-  MapPin,
-  Phone,
-  Share2,
-  AppWindow,
-  Gift,
-  Ticket,
-  CreditCard,
-  QrCode
-} from 'lucide-vue-next';
 
 // 订单操作项
 const orderActions = ref([
-  { name: '待付款', icon: Wallet },
-  { name: '待发货', icon: Package },
-  { name: '待收货', icon: Truck },
-  { name: '已完成', icon: CheckCircle2 },
-  { name: '售后', icon: Undo2 }
+  { name: '待付款', icon: 'wallet' },
+  { name: '待发货', icon: 'cart' },
+  { name: '待收货', icon: 'next' },
+  { name: '已完成', icon: 'check-circle' },
+  { name: '售后', icon: 'refresh' }
 ]);
-
 // 菜单栏项
 const menuItems = ref([
-  { name: '我的收藏', icon: Star },
-  { name: '收货地址', icon: MapPin },
-  { name: '绑定手机号', icon: Phone },
-  { name: '分销中心', icon: Share2 },
-  { name: '分类', icon: AppWindow }
+  { name: '我的收藏', icon: 'star' },
+  { name: '收货地址', icon: 'location' },
+  { name: '绑定手机号', icon: 'phone' },
+  { name: '分销中心', icon: 'share' },
+  { name: '分类', icon: 'grid' }
 ]);
 </script>
 

@@ -9,7 +9,11 @@
     <view class="main-content">
       <scroll-view scroll-y class="left-sidebar">
         <wd-sidebar v-model="activeCategoryIndex" @change="onCategoryChange">
-          <wd-sidebar-item v-for="item in categoryList" :key="item.id" :label="item.name" />
+          <wd-sidebar-item
+            v-for="item in categoryList"
+            :key="item.id"
+            :label="item.name"
+            :value="item.id" />
         </wd-sidebar>
       </scroll-view>
 

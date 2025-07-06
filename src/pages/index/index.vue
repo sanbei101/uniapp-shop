@@ -1,21 +1,9 @@
 <template>
   <view class="home-container">
-    <wd-navbar title="首页" fixed placeholder custom>
-      <template #right>
-        <view class="nav-right">
-          <wd-icon name="more" size="20px"></wd-icon>
-          <view class="nav-right-win-controls">
-            <text class="win-icon">-</text>
-            <text class="win-icon">○</text>
-          </view>
-        </view>
-      </template>
-    </wd-navbar>
-
     <view class="search-section">
       <wd-search v-model="searchValue" placeholder="请输入搜索的商品" hide-cancel>
         <template #suffix>
-          <wd-button size="small" type="danger" @click="onSearch">搜索</wd-button>
+          <wd-button size="small" type="error" @click="onSearch">搜索</wd-button>
         </template>
       </wd-search>
     </view>
@@ -49,7 +37,7 @@
                     :key="index"
                     custom-class="product-tag"
                     plain
-                    :type="tag.type"
+                    :type="tag.type as any"
                     >{{ tag.text }}</wd-tag
                   >
                 </view>
@@ -77,14 +65,14 @@ const searchValue = ref('');
 function generateProductList(count = 10) {
   const baseTags = [
     [
-      { text: '不抛光不打蜡', type: 'primary' },
+      { text: '不抛光不打蜡', type: 'success' },
       { text: '口感软糯，老幼皆宜', type: 'success' },
-      { text: '精选东北珍珠大米', type: 'warning' }
+      { text: '精选东北珍珠大米', type: 'info' }
     ],
     [
-      { text: '米中精品', type: 'primary' },
+      { text: '米中精品', type: 'success' },
       { text: '粒粒甄选', type: 'success' },
-      { text: '国标二级', type: 'danger' }
+      { text: '国标二级', type: 'info' }
     ]
   ];
   const titles = ['【木禾优选】东北珍珠米', '【木禾优选】东北长粒香米'];
